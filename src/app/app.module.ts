@@ -6,13 +6,17 @@ import { CurrentWeatherComponent } from './current-weather/current-weather.compo
 import { WeatherService } from './weather/weather.service';
 
 import { HttpClientModule } from '@angular/common/http';
+import 'hammerjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     AppComponent,
     CurrentWeatherComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule
+    BrowserModule, HttpClientModule, BrowserAnimationsModule, MaterialModule, FlexLayoutModule
   ],
   providers: [ WeatherService],
   bootstrap: [AppComponent]

@@ -13,14 +13,14 @@ export class CurrentWeatherComponent implements OnInit {
   current: ICurrentWeather;
 
   constructor(private weatherservice: WeatherService) {
-    /* this.current = {
-      city: 'Bethdesda',
-      country: 'US',
-      date: new Date(),
-      image: 'assets/img/sunny.png',
-      temperature: 72,
-      description: 'sunny',
-    } as ICurrentWeather; */
+   /*  this.current = {
+      city: '',
+      country: '',
+      date: 0,
+      image: '',
+      temperature: 0,
+      description: '',
+    }; */
 
   }
 
@@ -28,4 +28,9 @@ export class CurrentWeatherComponent implements OnInit {
     this.weatherservice.getCurrentWeather('sheffield', 'uk').subscribe((data) => this.current = data);
   }
 
+  getOrdinal(date: number) {
+    const n = new Date(date).getDate();
+    return n > 0
+      ? ['th', 'st', 'nd', 'rd' ] [ ( n > 3 && n < 21 ) || n % 10 > 3 ? 0 : n % 10 ] : '';
+  }
 }
